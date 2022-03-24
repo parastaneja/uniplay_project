@@ -9,6 +9,8 @@ public class ImageTracking : MonoBehaviour
 {
     [SerializeField]
     public GameObject[] prefabList;
+    public GameObject card;
+    public GameObject point;
 
     private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
     private ARTrackedImageManager trackedImageManager;
@@ -22,6 +24,7 @@ public class ImageTracking : MonoBehaviour
             newPrefab.name = gObj.name;
             spawnedPrefabs.Add(newPrefab.name, newPrefab);
         }
+        Instantiate(card, point.transform.position, Quaternion.identity);
     }
     private void OnEnable()
     {
