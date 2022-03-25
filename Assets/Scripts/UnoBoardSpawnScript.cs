@@ -9,7 +9,7 @@ public class UnoBoardSpawnScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i<3; i++)
+        for(int i = 0; i<1; i++)
         {
             Instantiate(cards[i],point[i].transform.position, Quaternion.identity);
         }

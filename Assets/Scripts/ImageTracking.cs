@@ -8,7 +8,7 @@ using UnityEngine.XR.ARFoundation;
 public class ImageTracking : MonoBehaviour
 {
     [SerializeField]
-    public GameObject[] prefabList;
+    //public GameObject[] prefabList;
     public GameObject card;
     public GameObject point;
 
@@ -17,37 +17,37 @@ public class ImageTracking : MonoBehaviour
 
     private void Awake()
     {
-        trackedImageManager = FindObjectOfType<ARTrackedImageManager>();
-        foreach (GameObject gObj in prefabList)
-        {
-            GameObject newPrefab = Instantiate(gObj, Vector3.zero, Quaternion.identity);
-            newPrefab.name = gObj.name;
-            spawnedPrefabs.Add(newPrefab.name, newPrefab);
-        }
+        // trackedImageManager = FindObjectOfType<ARTrackedImageManager>();
+        // foreach (GameObject gObj in prefabList)
+        // {
+        //     GameObject newPrefab = Instantiate(gObj, Vector3.zero, Quaternion.identity);
+        //     newPrefab.name = gObj.name;
+        //     spawnedPrefabs.Add(newPrefab.name, newPrefab);
+        // }
         Instantiate(card, point.transform.position, Quaternion.identity);
     }
     private void OnEnable()
     {
-        trackedImageManager.trackedImagesChanged += ImageChanged;
+        //trackedImageManager.trackedImagesChanged += ImageChanged;
     }
     private void OnDisable()
     {
-        trackedImageManager.trackedImagesChanged -= ImageChanged;
+        //trackedImageManager.trackedImagesChanged -= ImageChanged;
     }
     private void ImageChanged(ARTrackedImagesChangedEventArgs changedEventArgs)
     {
-        foreach (ARTrackedImage img in changedEventArgs.added)
-        {
-            UpdateImage(img);
-        }
-        foreach (ARTrackedImage img in changedEventArgs.updated)
-        {
-            UpdateImage(img);
-        }
-        foreach (ARTrackedImage img in changedEventArgs.removed)
-        {
-            spawnedPrefabs[img.name].SetActive(false);
-        }
+        // foreach (ARTrackedImage img in changedEventArgs.added)
+        // {
+        //     UpdateImage(img);
+        // }
+        // foreach (ARTrackedImage img in changedEventArgs.updated)
+        // {
+        //     UpdateImage(img);
+        // }
+        // foreach (ARTrackedImage img in changedEventArgs.removed)
+        // {
+        //     spawnedPrefabs[img.name].SetActive(false);
+        // }
     }
     private void UpdateImage(ARTrackedImage img)
     {
